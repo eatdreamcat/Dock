@@ -9,15 +9,7 @@
     },
     {
       "behavior": "assembly",
-      "name": "Avalonia.Controls.DataGrid.dll"
-    },
-    {
-      "behavior": "assembly",
       "name": "Avalonia.Controls.dll"
-    },
-    {
-      "behavior": "assembly",
-      "name": "Avalonia.Diagnostics.dll"
     },
     {
       "behavior": "assembly",
@@ -85,26 +77,6 @@
     },
     {
       "behavior": "assembly",
-      "name": "Microsoft.CodeAnalysis.CSharp.dll"
-    },
-    {
-      "behavior": "assembly",
-      "name": "Microsoft.CodeAnalysis.CSharp.Scripting.dll"
-    },
-    {
-      "behavior": "assembly",
-      "name": "Microsoft.CodeAnalysis.dll"
-    },
-    {
-      "behavior": "assembly",
-      "name": "Microsoft.CodeAnalysis.Scripting.dll"
-    },
-    {
-      "behavior": "assembly",
-      "name": "Microsoft.CSharp.dll"
-    },
-    {
-      "behavior": "assembly",
       "name": "SkiaSharp.dll"
     },
     {
@@ -114,10 +86,6 @@
     {
       "behavior": "assembly",
       "name": "System.Collections.dll"
-    },
-    {
-      "behavior": "assembly",
-      "name": "System.Collections.Immutable.dll"
     },
     {
       "behavior": "assembly",
@@ -154,18 +122,6 @@
     {
       "behavior": "assembly",
       "name": "System.dll"
-    },
-    {
-      "behavior": "assembly",
-      "name": "System.Globalization.dll"
-    },
-    {
-      "behavior": "assembly",
-      "name": "System.IO.Compression.dll"
-    },
-    {
-      "behavior": "assembly",
-      "name": "System.IO.MemoryMappedFiles.dll"
     },
     {
       "behavior": "assembly",
@@ -209,15 +165,7 @@
     },
     {
       "behavior": "assembly",
-      "name": "System.Reflection.Metadata.dll"
-    },
-    {
-      "behavior": "assembly",
       "name": "System.Runtime.InteropServices.JavaScript.dll"
-    },
-    {
-      "behavior": "assembly",
-      "name": "System.Runtime.Numerics.dll"
     },
     {
       "behavior": "assembly",
@@ -225,19 +173,7 @@
     },
     {
       "behavior": "assembly",
-      "name": "System.Security.Cryptography.dll"
-    },
-    {
-      "behavior": "assembly",
-      "name": "System.Text.Encoding.CodePages.dll"
-    },
-    {
-      "behavior": "assembly",
       "name": "System.Text.RegularExpressions.dll"
-    },
-    {
-      "behavior": "assembly",
-      "name": "System.Threading.Tasks.Parallel.dll"
     },
     {
       "behavior": "assembly",
