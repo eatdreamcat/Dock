@@ -69,10 +69,6 @@
     },
     {
       "behavior": "assembly",
-      "name": "Dock.ProportionalStackPanel.dll"
-    },
-    {
-      "behavior": "assembly",
       "name": "HarfBuzzSharp.dll"
     },
     {
