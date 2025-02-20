@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net8.0</TargetFrameworks>
+    <TargetFramework>net8.0</TargetFramework>
     <OutputType>Library</OutputType>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
     <Nullable>enable</Nullable>
@@ -10,15 +10,13 @@
   <PropertyGroup>
     <PackageId>Dock.Serializer</PackageId>
   </PropertyGroup>
-
-  <Import Project="..\..\build\Base.props" />
-  <Import Project="..\..\build\SignAssembly.props" />
-  <Import Project="..\..\build\SourceLink.props" />
-  <Import Project="..\..\build\Newtonsoft.Json.props" />
-  <Import Project="..\..\build\ReferenceAssemblies.props" />
-
+  
   <ItemGroup>
     <ProjectReference Include="..\Dock.Model\Dock.Model.csproj" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 
 </Project>

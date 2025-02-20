@@ -4,6 +4,7 @@ using System.Text;
 using Dock.Model.Core;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using Formatting = Newtonsoft.Json.Formatting;
 
 namespace Dock.Serializer;
 

@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net8.0</TargetFrameworks>
+    <TargetFramework>net8.0</TargetFramework>
     <OutputType>Library</OutputType>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
     <Nullable>enable</Nullable>
@@ -10,13 +10,7 @@
   <PropertyGroup>
     <PackageId>Dock.Settings</PackageId>
   </PropertyGroup>
-
-  <Import Project="..\..\build\Base.props" />
-  <Import Project="..\..\build\SignAssembly.props" />
-  <Import Project="..\..\build\SourceLink.props" />
-  <Import Project="..\..\build\ReferenceAssemblies.props" />
-  <Import Project="..\..\build\Avalonia.props" />
-
+  
   <ItemGroup>
     <AvaloniaResource Include="Assets\*" Exclude="bin\**;obj\**;**\*.xproj;packages\**;@(EmbeddedResource)" />
   </ItemGroup>
@@ -29,5 +23,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Avalonia" Version="11.2.4" />
   </ItemGroup>
 </Project>

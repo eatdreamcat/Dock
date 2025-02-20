@@ -10,11 +10,7 @@
   <PropertyGroup>
     <PackageId>Avalonia.Controls.Recycling.Model</PackageId>
   </PropertyGroup>
-
-  <Import Project="..\..\build\Base.props" />
-  <Import Project="..\..\build\SignAssembly.props" />
-  <Import Project="..\..\build\SourceLink.props" />
-  <Import Project="..\..\build\ReferenceAssemblies.props" />
+  
   <PropertyGroup>
     <AvaloniaBuildTasksLocation>$(MSBuildThisFileDirectory)</AvaloniaBuildTasksLocation>
   </PropertyGroup>

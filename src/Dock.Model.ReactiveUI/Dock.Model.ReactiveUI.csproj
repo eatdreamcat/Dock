@@ -16,18 +16,13 @@
   <PropertyGroup>
     <PackageId>Dock.Model.ReactiveUI</PackageId>
   </PropertyGroup>
-
-  <Import Project="..\..\build\Base.props" />
-  <!--<Import Project="..\..\build\SignAssembly.props" />-->
-  <Import Project="..\..\build\SourceLink.props" />
-  <Import Project="..\..\build\ReferenceAssemblies.props" />
-  <Import Project="..\..\build\ReactiveUI.props" />
-
+  
   <ItemGroup>
     <ProjectReference Include="..\Dock.Model\Dock.Model.csproj" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Avalonia.ReactiveUI" Version="11.2.4" />
     <PackageReference Include="ReactiveGenerator" Version="0.12.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
