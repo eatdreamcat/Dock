@@ -84,7 +84,7 @@ public class ControlRecycling : AvaloniaObject, IControlRecycling
 
         var dataTemplate = (parent as Control)?.FindDataTemplate(key);
 
-        control = dataTemplate?.Build(key);
+        control = dataTemplate?.Build(data);
         if (control is null)
         {
             return null;

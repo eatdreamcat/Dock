@@ -1,41 +1,43 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:dmc="using:Dock.Model.Controls">
+                    xmlns:dmc="using:Dock.Model.Controls"
+                    xmlns:controls="clr-namespace:Dock.Avalonia.Controls"
+                    xmlns:settings="clr-namespace:Dock.Settings;assembly=Dock.Settings">
   <Design.PreviewWith>
-    <RootDockControl Width="300" Height="300" />
+    <controls:RootDockControl Width="300" Height="300" />
   </Design.PreviewWith>
 
-  <ControlTheme x:Key="{x:Type RootDockControl}" TargetType="RootDockControl">
+  <ControlTheme x:Key="{x:Type controls:RootDockControl}" TargetType="controls:RootDockControl">
 
     <Setter Property="Template">
       <ControlTemplate>
-        <DockableControl TrackingMode="Visible"
+        <controls:DockableControl TrackingMode="Visible"
                          x:DataType="dmc:IRootDock"
                          x:CompileBindings="True">
           <DockPanel Background="Transparent"
-                     DockProperties.IsDropArea="False">
-            <ToolPinnedControl DockPanel.Dock="Left" 
+                     settings:DockProperties.IsDropArea="False">
+            <controls:ToolPinnedControl DockPanel.Dock="Left" 
                                Orientation="Vertical"
                                Items="{Binding LeftPinnedDockables}"
                                IsVisible="{Binding !!LeftPinnedDockables.Count, FallbackValue={x:False}}" />
-            <ToolPinnedControl DockPanel.Dock="Right" 
+            <controls:ToolPinnedControl DockPanel.Dock="Right" 
                                Orientation="Vertical"
                                Items="{Binding RightPinnedDockables}"
                                IsVisible="{Binding !!RightPinnedDockables.Count, FallbackValue={x:False}}" />
-            <ToolPinnedControl DockPanel.Dock="Top" 
+            <controls:ToolPinnedControl DockPanel.Dock="Top" 
                                Orientation="Horizontal"
                                Items="{Binding TopPinnedDockables}"
                                IsVisible="{Binding !!TopPinnedDockables.Count, FallbackValue={x:False}}" />
-            <ToolPinnedControl DockPanel.Dock="Bottom" 
+            <controls:ToolPinnedControl DockPanel.Dock="Bottom" 
                                Orientation="Horizontal"
                                Items="{Binding BottomPinnedDockables}"
                                IsVisible="{Binding !!BottomPinnedDockables.Count, FallbackValue={x:False}}" />
             <Panel>
               <ContentControl Content="{Binding ActiveDockable}" Name="PART_MainContent" />
-              <PinnedDockControl />
+              <controls:PinnedDockControl />
             </Panel>
           </DockPanel>
-        </DockableControl>
+        </controls:DockableControl>
       </ControlTemplate>
     </Setter>
 

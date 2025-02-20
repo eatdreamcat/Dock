@@ -1,12 +1,13 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="clr-namespace:Dock.Avalonia.Controls">
   <Design.PreviewWith>
     <Border>
-      <HostWindowTitleBar Background="SkyBlue" Height="30" Width="300" Foreground="Black" />
+      <controls:HostWindowTitleBar Background="SkyBlue" Height="30" Width="300" Foreground="Black" />
     </Border>
   </Design.PreviewWith>
 
-  <ControlTheme x:Key="{x:Type HostWindowTitleBar}" TargetType="HostWindowTitleBar">
+  <ControlTheme x:Key="{x:Type controls:HostWindowTitleBar}" TargetType="controls:HostWindowTitleBar">
 
     <Setter Property="Foreground" Value="{DynamicResource SystemControlForegroundBaseHighBrush}"/>    
     <Setter Property="VerticalAlignment" Value="Top" />

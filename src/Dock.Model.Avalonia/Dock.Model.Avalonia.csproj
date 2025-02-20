@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net6.0;net8.0</TargetFrameworks>
+    <TargetFrameworks>net8.0</TargetFrameworks>
     <OutputType>Library</OutputType>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
     <Nullable>enable</Nullable>
@@ -24,4 +24,14 @@
     <ProjectReference Include="..\Dock.Settings\Dock.Settings.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <AvaloniaXamlXmlnsDefinition Include="https://github.com/avaloniaui" ClrNamespace="Dock.Model.Avalonia"/>
+    <AvaloniaXamlXmlnsDefinition Include="https://github.com/avaloniaui" ClrNamespace="Dock.Model.Avalonia.Controls"/>
+    <AvaloniaXamlXmlnsDefinition Include="https://github.com/avaloniaui" ClrNamespace="Dock.Model.Avalonia.Core"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  
 </Project>

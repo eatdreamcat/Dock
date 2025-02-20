@@ -1,12 +1,14 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:dmc="using:Dock.Model.Controls"
-                    xmlns:core="using:Dock.Model.Core">
+                    xmlns:core="using:Dock.Model.Core"
+                    xmlns:controls="clr-namespace:Dock.Avalonia.Controls"
+                    xmlns:controls1="clr-namespace:Avalonia.Controls;assembly=Avalonia.Controls.ProportionalStackPanel">
   <Design.PreviewWith>
-    <DockControl Width="600" Height="400" />
+    <controls:DockControl Width="600" Height="400" />
   </Design.PreviewWith>
 
-  <ControlTheme x:Key="{x:Type DockControl}" TargetType="DockControl">
+  <ControlTheme x:Key="{x:Type controls:DockControl}" TargetType="controls:DockControl">
 
     <Setter Property="Template">
       <ControlTemplate>
@@ -16,28 +18,28 @@
                         x:CompileBindings="True">
           <ContentControl.DataTemplates>
             <DataTemplate DataType="dmc:IDocumentContent">
-              <DocumentContentControl />
+              <controls:DocumentContentControl />
             </DataTemplate>
             <DataTemplate DataType="dmc:IToolContent">
-              <ToolContentControl />
+              <controls:ToolContentControl />
             </DataTemplate>
             <DataTemplate DataType="dmc:IProportionalDockSplitter">
-              <ProportionalStackPanelSplitter />
+              <controls1:ProportionalStackPanelSplitter />
             </DataTemplate>
             <DataTemplate DataType="dmc:IDocumentDock">
-              <DocumentDockControl />
+              <controls:DocumentDockControl />
             </DataTemplate>
             <DataTemplate DataType="dmc:IToolDock">
-              <ToolDockControl />
+              <controls:ToolDockControl />
             </DataTemplate>
             <DataTemplate DataType="dmc:IProportionalDock">
-              <ProportionalDockControl />
+              <controls:ProportionalDockControl />
             </DataTemplate>
             <DataTemplate DataType="dmc:IDockDock">
-              <DockDockControl />
+              <controls:DockDockControl />
             </DataTemplate>
             <DataTemplate DataType="dmc:IRootDock">
-              <RootDockControl />
+              <controls:RootDockControl />
             </DataTemplate>
           </ContentControl.DataTemplates>
         </ContentControl>

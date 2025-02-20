@@ -1,12 +1,14 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:dmc="using:Dock.Model.Controls"
-                    xmlns:core="using:Dock.Model.Core">
+                    xmlns:core="using:Dock.Model.Core"
+                    xmlns:controls="clr-namespace:Dock.Avalonia.Controls"
+                    xmlns:settings="clr-namespace:Dock.Settings;assembly=Dock.Settings">
   <Design.PreviewWith>
-    <ToolPinnedControl Width="30" Height="400" />
+    <controls:ToolPinnedControl Width="30" Height="400" />
   </Design.PreviewWith>
 
-  <ControlTheme x:Key="{x:Type ToolPinnedControl}" TargetType="ToolPinnedControl">
+  <ControlTheme x:Key="{x:Type controls:ToolPinnedControl}" TargetType="controls:ToolPinnedControl">
 
     <Setter Property="Orientation" Value="Vertical" />
 
@@ -17,13 +19,13 @@
                       x:CompileBindings="True">
           <ItemsControl.ItemsPanel>
             <ItemsPanelTemplate>
-              <StackPanel Orientation="{Binding $parent[ToolPinnedControl].Orientation}"
-                          DockProperties.IsDropArea="True" />
+              <StackPanel Orientation="{Binding $parent[controls:ToolPinnedControl].Orientation}"
+                          settings:DockProperties.IsDropArea="True" />
             </ItemsPanelTemplate>
           </ItemsControl.ItemsPanel>
           <ItemsControl.DataTemplates>
             <DataTemplate DataType="core:IDockable">
-              <ToolPinItemControl Orientation="{Binding $parent[ToolPinnedControl].Orientation}" />
+              <controls:ToolPinItemControl Orientation="{Binding $parent[controls:ToolPinnedControl].Orientation}" />
             </DataTemplate>
           </ItemsControl.DataTemplates>
         </ItemsControl>

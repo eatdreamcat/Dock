@@ -1,9 +1,11 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:converters="using:Dock.Avalonia.Converters"
-                    xmlns:controls="using:Dock.Model.Controls">
+                    xmlns:controls="using:Dock.Model.Controls"
+                    xmlns:controls1="clr-namespace:Dock.Avalonia.Controls"
+                    xmlns:settings="clr-namespace:Dock.Settings;assembly=Dock.Settings">
   <Design.PreviewWith>
-    <ToolChromeControl Width="300" Height="400" />
+    <controls1:ToolChromeControl Width="300" Height="400" />
   </Design.PreviewWith>
 
   <MenuFlyout x:Key="ToolChromeControlContextMenu"
@@ -24,7 +26,7 @@
       <MenuItem.IsVisible>
         <MultiBinding Converter="{x:Static BoolConverters.And}">
           <Binding Path="ActiveDockable.CanPin" FallbackValue="{x:False}" />
-          <Binding Path="$parent[ToolChromeControl].IsFloating" Converter="{x:Static BoolConverters.Not}" />
+          <Binding Path="$parent[controls1:ToolChromeControl].IsFloating" Converter="{x:Static BoolConverters.Not}" />
         </MultiBinding>
       </MenuItem.IsVisible>
     </MenuItem>
@@ -43,14 +45,14 @@
     <Setter Property="Height" Value="16" />
   </ControlTheme>
 
-  <ControlTheme x:Key="{x:Type ToolChromeControl}" TargetType="ToolChromeControl">
+  <ControlTheme x:Key="{x:Type controls1:ToolChromeControl}" TargetType="controls1:ToolChromeControl">
 
     <Setter Property="Background" Value="{DynamicResource DockThemeBackgroundBrush}" />
     <Setter Property="BorderBrush" Value="{DynamicResource DockThemeBorderLowBrush}" />
     <Setter Property="BorderThickness" Value="0" />
     <Setter Property="Padding" Value="0" />
     <Setter Property="IsPinned" Value="{CompiledBinding ActiveDockable.OriginalOwner, FallbackValue=False, Converter={x:Static ObjectConverters.IsNotNull}}" x:DataType="controls:IToolDock" />
-    <Setter Property="IsMaximized" Value="{CompiledBinding $parent[Window].WindowState, FallbackValue=False, Converter={x:Static IsMaximizedConverter.Instance}}" />
+    <Setter Property="IsMaximized" Value="{CompiledBinding $parent[Window].WindowState, FallbackValue=False, Converter={x:Static converters:IsMaximizedConverter.Instance}}" />
 
     <Setter Property="Template">
       <ControlTemplate>
@@ -174,11 +176,11 @@
     </Style>
 
     <Style Selector="^/template/ Grid#PART_Grip">
-      <Setter Property="(DockProperties.IsDragArea)" Value="True" />
+      <Setter Property="(settings:DockProperties.IsDragArea)" Value="True" />
     </Style>
 
     <Style Selector="^:floating /template/ Grid#PART_Grip">
-      <Setter Property="(DockProperties.IsDragArea)" Value="{Binding $parent[HostWindow].ToolChromeControlsWholeWindow, Mode=OneWay, Converter={x:Static BoolConverters.Not}}" />
+      <Setter Property="(settings:DockProperties.IsDragArea)" Value="{Binding $parent[controls1:HostWindow].ToolChromeControlsWholeWindow, Mode=OneWay, Converter={x:Static BoolConverters.Not}}" />
     </Style>
 
     <Style Selector="^:active /template/ Grid#PART_Grip">

@@ -1,16 +1,17 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="clr-namespace:Dock.Avalonia.Controls">
   <Design.PreviewWith>
     <Border Padding="20">
-      <ToolTabStrip>
-        <ToolTabStripItem>Item 1</ToolTabStripItem>
-        <ToolTabStripItem>Item 2</ToolTabStripItem>
-        <ToolTabStripItem IsEnabled="False">Disabled</ToolTabStripItem>
-      </ToolTabStrip>
+      <controls:ToolTabStrip>
+        <controls:ToolTabStripItem>Item 1</controls:ToolTabStripItem>
+        <controls:ToolTabStripItem>Item 2</controls:ToolTabStripItem>
+        <controls:ToolTabStripItem IsEnabled="False">Disabled</controls:ToolTabStripItem>
+      </controls:ToolTabStrip>
     </Border>
   </Design.PreviewWith>
 
-  <ControlTheme x:Key="{x:Type ToolTabStrip}" TargetType="ToolTabStrip">
+  <ControlTheme x:Key="{x:Type controls:ToolTabStrip}" TargetType="controls:ToolTabStrip">
 
     <Setter Property="Background" Value="Transparent" />
     <Setter Property="Focusable" Value="False" />

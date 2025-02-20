@@ -1,13 +1,15 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:dmc="clr-namespace:Dock.Model.Controls;assembly=Dock.Model">
+                    xmlns:dmc="clr-namespace:Dock.Model.Controls;assembly=Dock.Model"
+                    xmlns:controls="clr-namespace:Dock.Avalonia.Controls"
+                    xmlns:converters="clr-namespace:Dock.Avalonia.Converters">
   <Design.PreviewWith>
     <Border>
-      <PinnedDockControl />
+      <controls:PinnedDockControl />
     </Border>
   </Design.PreviewWith>
 
-  <ControlTheme x:Key="{x:Type PinnedDockControl}" TargetType="PinnedDockControl">
+  <ControlTheme x:Key="{x:Type controls:PinnedDockControl}" TargetType="controls:PinnedDockControl">
 
     <Setter Property="PinnedDockAlignment" Value="{CompiledBinding PinnedDock.Alignment}" x:DataType="dmc:IRootDock" />
 
@@ -19,16 +21,16 @@
               x:CompileBindings="True">
           <ContentControl Content="{Binding PinnedDock}" Name="PART_PinnedDock">
             <ContentControl.Styles>
-              <Style Selector="ToolDockControl">
+              <Style Selector="controls|ToolDockControl">
                 <Setter Property="Background">
-                  <MultiBinding Converter="{x:Static EitherNotNullConverter.Instance}">
+                  <MultiBinding Converter="{x:Static converters:EitherNotNullConverter.Instance}">
                     <CompiledBinding Path="$parent[Window].Background" />
                     <CompiledBinding Path="$parent[Window].TransparencyBackgroundFallback" />
                   </MultiBinding>
                 </Setter>
               </Style>
-              <Style Selector="ToolControl">
-                <Setter Property="IsHitTestVisible" Value="{CompiledBinding !$parent[DockControl].IsDraggingDock}" />
+              <Style Selector="controls|ToolControl">
+                <Setter Property="IsHitTestVisible" Value="{CompiledBinding !$parent[controls:DockControl].IsDraggingDock}" />
               </Style>
             </ContentControl.Styles>
           </ContentControl>

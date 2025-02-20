@@ -1,13 +1,15 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:dmc="using:Dock.Model.Controls"
+                    xmlns:controls="clr-namespace:Dock.Avalonia.Controls"
+                    xmlns:settings="clr-namespace:Dock.Settings;assembly=Dock.Settings"
                     x:CompileBindings="True">
   <Design.PreviewWith>
     <Border Padding="20">
       <StackPanel Spacing="20">
-        <ToolTabStripItem>Leaf</ToolTabStripItem>
-        <ToolTabStripItem IsSelected="True">Arch</ToolTabStripItem>
-        <ToolTabStripItem Background="Yellow">Background</ToolTabStripItem>
+        <controls:ToolTabStripItem>Leaf</controls:ToolTabStripItem>
+        <controls:ToolTabStripItem IsSelected="True">Arch</controls:ToolTabStripItem>
+        <controls:ToolTabStripItem Background="Yellow">Background</controls:ToolTabStripItem>
       </StackPanel>
     </Border>
   </Design.PreviewWith>
@@ -32,7 +34,7 @@
       <MenuItem.IsVisible>
         <MultiBinding Converter="{x:Static BoolConverters.And}">
           <Binding Path="CanPin" FallbackValue="{x:False}" />
-          <Binding Path="$parent[HostWindow]" Converter="{x:Static ObjectConverters.IsNull}" />
+          <Binding Path="$parent[controls:HostWindow]" Converter="{x:Static ObjectConverters.IsNull}" />
         </MultiBinding>
       </MenuItem.IsVisible>
     </MenuItem>
@@ -42,7 +44,7 @@
               IsVisible="{Binding CanClose}"/>
   </ContextMenu>
   
-  <ControlTheme x:Key="{x:Type ToolTabStripItem}" TargetType="ToolTabStripItem">
+  <ControlTheme x:Key="{x:Type controls:ToolTabStripItem}" TargetType="controls:ToolTabStripItem">
 
     <Setter Property="(TextElement.FontSize)" Value="{DynamicResource DockFontSizeNormal}" />
     <Setter Property="FontWeight" Value="Normal" />
@@ -66,19 +68,19 @@
                   Padding="{TemplateBinding Padding}"
                   ContextMenu="{DynamicResource ToolTabStripItemContextMenu}"
                   x:DataType="dmc:IToolDock" x:CompileBindings="True">
-            <DockableControl TrackingMode="Tab">
+            <controls:DockableControl TrackingMode="Tab">
               <StackPanel x:Name="DragTool"
                           Background="Transparent"
                           Orientation="Horizontal"
                           Spacing="2"
-                          DockProperties.IsDragArea="True"
-                          DockProperties.IsDropArea="True">
+                          settings:DockProperties.IsDragArea="True"
+                          settings:DockProperties.IsDropArea="True">
                 <Panel Margin="2">
-                  <ContentPresenter ContentTemplate="{Binding $parent[ToolControl].HeaderTemplate}"
+                  <ContentPresenter ContentTemplate="{Binding $parent[controls:ToolControl].HeaderTemplate}"
                                     Content="{Binding}" />
                 </Panel>
               </StackPanel>
-            </DockableControl>
+            </controls:DockableControl>
           </Border>
       </ControlTemplate>
     </Setter>

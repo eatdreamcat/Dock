@@ -1,8 +1,9 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:core="using:Dock.Model.Core">
+                    xmlns:core="using:Dock.Model.Core"
+                    xmlns:controls="clr-namespace:Dock.Avalonia.Controls">
   <Design.PreviewWith>
-    <ToolPinItemControl Width="30" Height="400" />
+    <controls:ToolPinItemControl Width="30" Height="400" />
   </Design.PreviewWith>
 
   <ContextMenu x:Key="ToolPinItemControlContextMenu" x:DataType="core:IDockable" x:CompileBindings="True">
@@ -20,11 +21,11 @@
               IsVisible="{Binding CanClose}"/>
   </ContextMenu>
 
-  <ControlTheme x:Key="{x:Type ToolPinItemControl}" TargetType="ToolPinItemControl">
+  <ControlTheme x:Key="{x:Type controls:ToolPinItemControl}" TargetType="controls:ToolPinItemControl">
 
     <Setter Property="Template">
       <ControlTemplate>
-        <DockableControl TrackingMode="Pinned"
+        <controls:DockableControl TrackingMode="Pinned"
                          x:DataType="core:IDockable"
                          x:CompileBindings="True">
           <LayoutTransformControl x:Name="PART_LayoutTransformControl">
@@ -42,7 +43,7 @@
               </TextBlock>
             </Button>
           </LayoutTransformControl>
-        </DockableControl>
+        </controls:DockableControl>
       </ControlTemplate>
     </Setter>
 

@@ -1,13 +1,15 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:core="using:Dock.Model.Core"
+                    xmlns:controls="clr-namespace:Dock.Avalonia.Controls"
+                    xmlns:settings="clr-namespace:Dock.Settings;assembly=Dock.Settings"
                     x:CompileBindings="True">
   <Design.PreviewWith>
     <Border Padding="20">
       <StackPanel Spacing="20">
-        <DocumentTabStripItem>Leaf</DocumentTabStripItem>
-        <DocumentTabStripItem IsSelected="True">Arch</DocumentTabStripItem>
-        <DocumentTabStripItem Background="Yellow">Background</DocumentTabStripItem>
+        <controls:DocumentTabStripItem>Leaf</controls:DocumentTabStripItem>
+        <controls:DocumentTabStripItem IsSelected="True">Arch</controls:DocumentTabStripItem>
+        <controls:DocumentTabStripItem Background="Yellow">Background</controls:DocumentTabStripItem>
       </StackPanel>
     </Border>
   </Design.PreviewWith>
@@ -39,7 +41,7 @@
               IsVisible="{Binding CanClose}"/>
   </ContextMenu>
   
-  <ControlTheme x:Key="{x:Type DocumentTabStripItem}" TargetType="DocumentTabStripItem">
+  <ControlTheme x:Key="{x:Type controls:DocumentTabStripItem}" TargetType="controls:DocumentTabStripItem">
 
     <Setter Property="(TextElement.FontSize)" Value="{DynamicResource DockFontSizeNormal}" />
     <Setter Property="FontWeight" Value="Normal" />
@@ -62,14 +64,14 @@
                   BorderThickness="{TemplateBinding BorderThickness}"
                   Padding="{TemplateBinding Padding}"
                   ContextMenu="{DynamicResource DocumentTabStripItemContextMenu}">
-            <DockableControl TrackingMode="Tab">
+            <controls:DockableControl TrackingMode="Tab">
               <StackPanel Background="Transparent"
                           Orientation="Horizontal"
                           Spacing="2"
-                          DockProperties.IsDragArea="True"
-                          DockProperties.IsDropArea="True">
+                          settings:DockProperties.IsDragArea="True"
+                          settings:DockProperties.IsDropArea="True">
                 <Panel Margin="2">
-                  <ContentPresenter ContentTemplate="{Binding $parent[DocumentControl].HeaderTemplate}"
+                  <ContentPresenter ContentTemplate="{Binding $parent[controls:DocumentControl].HeaderTemplate}"
                                     Content="{Binding}" />
                 </Panel>
                 <Button x:Name="PART_CloseButton"
@@ -102,7 +104,7 @@
                   </Path>
                 </Button>
               </StackPanel>
-            </DockableControl>
+            </controls:DockableControl>
           </Border>
       </ControlTemplate>
     </Setter>

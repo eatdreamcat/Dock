@@ -1,12 +1,15 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:dmc="using:Dock.Model.Controls"
-                    xmlns:core="using:Dock.Model.Core">
+                    xmlns:core="using:Dock.Model.Core"
+                    xmlns:recycling="clr-namespace:Avalonia.Controls.Recycling;assembly=Avalonia.Controls.Recycling"
+                    xmlns:controls="clr-namespace:Dock.Avalonia.Controls"
+                    xmlns:settings="clr-namespace:Dock.Settings;assembly=Dock.Settings">
   <Design.PreviewWith>
-    <ToolControl Width="300" Height="400" />
+    <controls:ToolControl Width="300" Height="400" />
   </Design.PreviewWith>
 
-  <ControlTheme x:Key="{x:Type ToolControl}" TargetType="ToolControl">
+  <ControlTheme x:Key="{x:Type controls:ToolControl}" TargetType="controls:ToolControl">
 
     <Setter Property="HeaderTemplate">
       <DataTemplate DataType="core:IDockable">
@@ -17,27 +20,27 @@
     <Setter Property="Template">
       <ControlTemplate>
         <DockPanel x:Name="PART_DockPanel"
-                   DockProperties.IsDropArea="True"
-                   DockProperties.IsDockTarget="True"
+                   settings:DockProperties.IsDropArea="True"
+                   settings:DockProperties.IsDockTarget="True"
                    x:DataType="dmc:IToolDock"
                    x:CompileBindings="True">
-          <ToolTabStrip x:Name="PART_TabStrip"
+          <controls:ToolTabStrip x:Name="PART_TabStrip"
                         ItemsSource="{Binding VisibleDockables}"
                         SelectedItem="{Binding ActiveDockable, Mode=TwoWay}"
                         DockPanel.Dock="Bottom"
-                        DockProperties.IsDropArea="True" />
+                        settings:DockProperties.IsDropArea="True" />
           <Border x:Name="PART_Border">
-            <DockableControl DataContext="{Binding ActiveDockable}"
+            <controls:DockableControl DataContext="{Binding ActiveDockable}"
                              TrackingMode="Visible">
               <ContentControl x:Name="PART_ContentPresenter"
                               Content="{Binding}"
                               HorizontalAlignment="Stretch"
                               VerticalAlignment="Stretch">
                 <ContentControl.ContentTemplate>
-                  <ControlRecyclingDataTemplate Parent="{Binding #PART_ContentPresenter}" />
+                  <recycling:ControlRecyclingDataTemplate Parent="{Binding #PART_ContentPresenter}" />
                 </ContentControl.ContentTemplate>
               </ContentControl>
-            </DockableControl>
+            </controls:DockableControl>
           </Border>
         </DockPanel>
       </ControlTemplate>
